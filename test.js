@@ -1,4 +1,4 @@
-Game.registerMod('test mod',{
+Game.registerMod('cheatmod',{
 				/*
 					what this example mod does:
 					-double your CpS
@@ -7,8 +7,8 @@ Game.registerMod('test mod',{
 					-save and load your intro text
 				*/
 				init:function(){
-					Game.registerHook('reincarnate',function(){Game.mods['test mod'].addIntro();});
-					Game.registerHook('check',function(){if (!Game.playerIntro){Game.mods['test mod'].addIntro();}});
+					Game.registerHook('reincarnate',function(){Game.mods['cheatmod'].addIntro();});
+					Game.registerHook('check',function(){if (!Game.playerIntro){Game.mods['cheatmod'].addIntro();}});
 					Game.registerHook('click',function(){Game.Notify(choose(['A good click.','A solid click.','A mediocre click.','An excellent click!']),'',0,0.5);});
 					Game.registerHook('cps',function(cps){return cps*2;});
 				},
@@ -18,7 +18,7 @@ Game.registerMod('test mod',{
 				},
 				load:function(str){
 					var data=JSON.parse(str);
-					if (data.text) Game.mods['test mod'].addIntro(data.text);
+					if (data.text) Game.mods['cheatmod'].addIntro(data.text);
 				},
 				addIntro:function(text){
 					//note: this is not a mod hook, just a function that's part of the mod
